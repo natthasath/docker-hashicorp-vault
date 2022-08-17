@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  web:
+    image: vault:latest
+    container_name: vault
+    restart: always
+    ports:
+      - 8200:8200
+      - 8201:8201
+    networks:
+      - default
+    volumes:
+      - data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      VAULT_ADDR: 'http://10.100.100.82:8200'
+      VAULT_DEV_ROOT_TOKEN_ID: 'vault-plaintext-root-token'
+
+networks:
+  default:
+    driver: bridge
+
+volumes:
+  data:
+    driver: local
