@@ -5,8 +5,8 @@ services:
     container_name: vault
     restart: always
     ports:
-      - 8200:8200
-      - 8201:8201
+      - 7200:8200
+      - 7201:8201
     networks:
       - default
     volumes:
