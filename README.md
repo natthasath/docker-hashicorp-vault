@@ -8,8 +8,9 @@ A tool for secrets management, encryption as a service, and privileged access ma
 
 ### 🥈 Run
 
-- [http://localhost:7200/](http://localhost:7200/) username : `admin` password : `admin`
+- [http://localhost:7200/](http://localhost:7200/) token : `token`
 
 ```shell
 docker-compose up -d
+docker logs CONTAINER_ID (GET TOKEN)
 ```
