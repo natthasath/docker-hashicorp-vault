@@ -8,7 +8,7 @@ Hashicorp Vault is an open-source tool that provides secure storage and manageme
 
 ### 🥈 Run
 
-- [http://localhost:7200/](http://localhost:7200/) token : `token`
+- [http://localhost:8200/](http://localhost:8200/) token : `token`
 
 ```shell
 docker-compose up -d

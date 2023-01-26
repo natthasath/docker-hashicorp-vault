@@ -5,8 +5,7 @@ services:
     container_name: vault
     restart: always
     ports:
-      - 7200:8200
-      - 7201:8201
+      - ${APP_PORT}:8200
     networks:
       - default
     volumes:
