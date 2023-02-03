@@ -6,7 +6,7 @@ Hashicorp Vault is an open-source tool that provides secure storage and manageme
 ![rating](https://img.shields.io/badge/rating-★★★★★-yellow)
 ![uptime](https://img.shields.io/badge/uptime-100%25-brightgreen)
 
-### 🥈 Run
+### 🏆 Run
 
 - [http://localhost:8200/](http://localhost:8200/) token : `token`
 
