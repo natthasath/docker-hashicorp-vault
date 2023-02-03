@@ -12,5 +12,10 @@ Hashicorp Vault is an open-source tool that provides secure storage and manageme
 
 ```shell
 docker-compose up -d
+```
+
+### 👉🏻 Try it out
+
+```shell
 docker logs CONTAINER_ID (GET TOKEN)
 ```
