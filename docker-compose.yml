@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   web:
-    image: vault:latest
+    image: vault:1.13.3
     container_name: vault
     restart: always
     ports:
@@ -9,7 +9,7 @@ services:
     networks:
       - default
     volumes:
-      - data:/data
+      - ./data:/vault/data
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       VAULT_ADDR: 'http://localhost:8200'
@@ -17,7 +17,3 @@ services:
 networks:
   default:
     driver: bridge
-
-volumes:
-  data:
-    driver: local
