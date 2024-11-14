@@ -9,6 +9,7 @@ services:
     networks:
       - default
     volumes:
+      - data:/vault/data
       - ./data:/vault/data
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
@@ -16,4 +17,10 @@ services:
 
 networks:
   default:
+    name: docker_hashicorp_vault_network
     driver: bridge
+
+volumes:
+  data:
+    name: docker_hashicorp_vault_data
+    driver: local
