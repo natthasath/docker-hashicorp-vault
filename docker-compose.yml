@@ -9,7 +9,7 @@ services:
     ports:
       - ${VAULT_HTTP_PORT}:8200
     volumes:
-      - vault_data:/vault/data
+      - default:/vault/data
     networks:
       - default
     healthcheck:
@@ -20,10 +20,10 @@ services:
 
 networks:
   default:
-    name: vault_network
+    name: ${VAULT_CONTAINER_NAME}_network
     driver: bridge
 
 volumes:
-  vault_data:
-    name: vault_data
+  default:
+    name: ${VAULT_CONTAINER_NAME}_data
     driver: local
