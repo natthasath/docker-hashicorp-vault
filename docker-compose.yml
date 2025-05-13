@@ -1,26 +1,29 @@
-version: '3.9'
 services:
-  web:
-    image: vault:1.13.3
-    container_name: vault
-    restart: always
-    ports:
-      - ${APP_PORT}:8200
-    networks:
-      - default
-    volumes:
-      - data:/vault/data
-      - ./data:/vault/data
-      - /var/run/docker.sock:/var/run/docker.sock
+  vault:
+    container_name: ${VAULT_CONTAINER_NAME}
+    image: ${VAULT_IMAGE_NAME}:${VAULT_IMAGE_VERSION}
+    restart: ${RESTART_POLICY}
     environment:
       VAULT_ADDR: 'http://localhost:8200'
+      TZ: ${TIMEZONE}
+    ports:
+      - ${VAULT_HTTP_PORT}:8200
+    volumes:
+      - vault_data:/vault/data
+    networks:
+      - default
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8200/v1/sys/health"]
+      interval: ${HEALTHCHECK_INTERVAL}
+      timeout: ${HEALTHCHECK_TIMEOUT}
+      retries: ${HEALTHCHECK_RETRIES}
 
 networks:
   default:
-    name: docker_hashicorp_vault_network
+    name: vault_network
     driver: bridge
 
 volumes:
-  data:
-    name: docker_hashicorp_vault_data
+  vault_data:
+    name: vault_data
     driver: local
