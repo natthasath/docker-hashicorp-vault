@@ -1,3 +1,5 @@
+name: ${GLOBAL_NAME}
+
 services:
   vault:
     container_name: ${VAULT_CONTAINER_NAME}
